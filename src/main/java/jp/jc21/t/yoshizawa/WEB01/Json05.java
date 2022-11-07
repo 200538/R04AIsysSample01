@@ -21,10 +21,10 @@ public class Json05 {
 	static Language getLanguage(String s) throws IOException, URISyntaxException, InterruptedException {
 		Gson gson = new Gson();
 
-		String url = "https://r04jk3ab-text.cognitiveservices.azure.com//" + "text/analytics/v3.0/languages";
+		String url = "https://r04jk3a02-text.cognitiveservices.azure.com// "+ "text/analytics/v3.0/languages";
 		Map<String, String> map = new HashMap<>();
 
-		map.put("Ocp-Apim-Subscription-Key", "e4d081577c1246b19094fe32e2ef4dd5");
+		map.put("Ocp-Apim-Subscription-Key", "c1ea252280db440897b6449cb530be36");
 
 		Docs doc = new Docs();
 		doc.id = "1";

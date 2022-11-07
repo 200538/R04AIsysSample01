@@ -1,4 +1,4 @@
-package jp.jc21.t.yoshizawa.WEB01.sentiment;
+package jp.jc21.t.yoshizawa.WEB01;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -9,9 +9,7 @@ import java.util.Map;
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
 
-import jp.jc21.t.yoshizawa.WEB01.WebApiConnector;
-
-public class Json05 {
+public class Sentiment {
 
 	public static void main(String[] args) throws IOException, URISyntaxException, InterruptedException {
 		Language message = getLanguage("Stepover Toehold With Facelock");
@@ -23,9 +21,10 @@ public class Json05 {
 	static Language getLanguage(String s) throws IOException, URISyntaxException, InterruptedException {
 		Gson gson = new Gson();
 
-		String url = "https://r04jk3ab-text.cognitiveservices.azure.com//" + "text/analytics/v3.0/languages";
+		String url = "https://r04jk3a02-text.cognitiveservices.azure.com// "+ "text/analytics/v3.0/languages";
 		Map<String, String> map = new HashMap<>();
-		map.put("Ocp-Apim-Subscription-Key", "953ea066e1384085b69e5bd5cb3cd0");
+		
+		map.put("Ocp-Apim-Subscription-Key", "c1ea252280db440897b6449cb530be36");
 
 		Docs doc = new Docs();
 		doc.id = "1";
@@ -50,25 +49,25 @@ public class Json05 {
 
 }
 
-class Language {
-	Documents[] documents;
+class Senti {
+	Document[] documents;
 	String[] errors;
 	String modelVersion;
 }
-
-class Documents {
-	DetectedLanguage detectedLanguage;
+class Document {
+	confidenceScores confidenceScores;
+	String id ;
+	String sentiment;
 }
-
-class DetectedLanguage {
-	String name;
+class confidenceScores {
+	double negative;
+	double neutral;
+	double positive;
 }
-
-class Source {
+class Src {
 	Docs[] documents;
 }
-
-class Docs {
+class Doc {
 	String id;
 	String text;
 }
